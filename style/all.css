@@ -21,6 +21,7 @@ a {
 }
 
 .container {
+    padding: 0px 10px;
     margin: auto;
 }
 
@@ -46,6 +47,8 @@ a {
 }
 
 /* ******* */
+
+/*  start header */
 .header {
     background-color: #fff;
     box-shadow: 0px 0px 2px 1px #eee;
@@ -57,7 +60,6 @@ a {
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-
 }
 
 .header__logo {
@@ -99,14 +101,13 @@ a {
 @media (max-width: 767px) {
     .header__navItems {
         margin: auto;
-      
+
     }
     .header__navItems>li>a {
         padding: 10px;
         font-size: 14px;
         height: 40px;
     }
-
 }
 
 .header__navItems>li>a::before {
@@ -128,3 +129,136 @@ a {
 .header__navItems>li>a:hover::before {
     width: 100%;
 }
+
+/*  End header */
+
+/* start landing */
+.landing {
+    position: relative;
+}
+
+.landing::before {
+    position: absolute;
+    content: "";
+    top: -30px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+    z-index: -1;
+    transform-origin: top left;
+    transform: skewY(-6deg);
+}
+
+.landing .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+}
+
+@media (max-width: 767px) {
+    .landing .container {
+        height: calc(100vh - 100px);
+    }
+}
+
+.landing__text>h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: -40px;
+    line-height: 60PX;
+}
+
+.landing__text>p {
+    font-size: 23px;
+    line-height: 39px;
+    color: #666
+}
+
+@media (max-width: 991px) {
+    .landing__text {
+        width: 100%;
+        text-align: center;
+        margin-top: -200px;
+    }
+
+    .landing__text>h1 {
+        font-size: 26px;
+    }
+
+    .landing__text>p {
+        font-size: 18px;
+        max-width: 500px;
+        margin: auto;
+        line-height: 30PX;
+    }
+}
+
+.landing__img>img {
+    width: 550px;
+    height: 100%;
+    transition: var(--main-transition);
+    position: relative;
+    animation: landingImgUpAndDown 5s linear infinite;
+}
+
+@media (max-width: 991px) {
+    .landing__img>img {
+        display: none;
+    }
+}
+
+.landing__downClick {
+    font-size: 20px;
+    width: 100%;
+    margin-top: -20px;
+    text-align: center;
+    position: relative;
+    animation: landingRowUpAndDown 1.5s linear infinite;
+}
+
+
+
+/* end landing */
+
+
+
+
+
+
+/* start Animation */
+
+@keyframes landingImgUpAndDown {
+
+    0%,
+    100% {
+        top: 0px;
+    }
+    50% {
+        top: -50px;
+    }
+}
+
+@keyframes landingRowUpAndDown {
+
+    0%,
+    40%,
+    60%,
+    80%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50%,
+    70% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+
+
+/* end animation */
