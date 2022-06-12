@@ -1,7 +1,8 @@
 :root {
     --main-blue: #4d97f3;
     --second-blue: #2196f3;
-    --main-transition: .3s
+    --main-transition: .3s;
+    --back-gr-color: #fafafa;
 }
 
 html {
@@ -103,6 +104,7 @@ a {
         margin: auto;
 
     }
+
     .header__navItems>li>a {
         padding: 10px;
         font-size: 14px;
@@ -160,7 +162,7 @@ a {
 
 @media (max-width: 767px) {
     .landing .container {
-        height: calc(100vh - 100px);
+        height: calc(100vh - 110px);
     }
 }
 
@@ -211,17 +213,95 @@ a {
 }
 
 .landing__downClick {
-    font-size: 20px;
+
     width: 100%;
-    margin-top: -20px;
+    margin-top: -40px;
     text-align: center;
     position: relative;
     animation: landingRowUpAndDown 1.5s linear infinite;
 }
 
-
-
 /* end landing */
+
+/* start mega menu */
+
+.mega-menu .container {
+    position: absolute;
+    flex-wrap: nowrap;
+    left: 0px;
+    background-color: #fff;
+    z-index: 9;
+    margin-top: 40px;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--main-transition) linear;
+    min-height: 360px;
+    border-bottom: 4px solid var(--main-blue);
+
+}
+
+.xxx:hover .container {
+    visibility: visible;
+    opacity: 1;
+    margin: 0px;
+}
+.mega-menu__image{
+    flex:2;
+    padding: 10px;
+}
+.mega-menu__links {
+    flex: 1;
+}
+
+
+.mega-menu__image>img {
+    max-width: 100%;
+    height: 100%;
+}
+
+@media (max-width:991px) {
+    .mega-menu__image {
+        display: none;
+    }
+}
+
+@media (max-width:767px) {
+
+    .mega-menu .container {
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.mega-menu__links>li {
+    padding: 15px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 100%;
+    color: var(--second-blue);
+    position: relative;
+}
+
+.mega-menu__links>li::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    transition: var(--main-transition);
+    background-color: var(--back-gr-color);
+    border-bottom: 1px solid var(--second-blue);
+}
+
+.mega-menu__links>li:hover::before {
+    width: 100%;
+}
+
+/* end mega menu */
 
 
 
@@ -236,6 +316,7 @@ a {
     100% {
         top: 0px;
     }
+
     50% {
         top: -50px;
     }
