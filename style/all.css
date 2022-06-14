@@ -3,6 +3,7 @@
     --second-blue: #2196f3;
     --main-transition: .3s;
     --back-gr-color: #fafafa;
+    --timeAnimationAndTransitionForSpecialButton: .7s
 }
 
 html {
@@ -215,10 +216,11 @@ a {
 .landing__downClick {
 
     width: 100%;
-    margin-top: -40px;
+    margin-top: -30px;
     text-align: center;
     position: relative;
     animation: landingRowUpAndDown 1.5s linear infinite;
+    color: var(--second-blue);
 }
 
 /* end landing */
@@ -245,10 +247,12 @@ a {
     opacity: 1;
     margin: 0px;
 }
-.mega-menu__image{
-    flex:2;
+
+.mega-menu__image {
+    flex: 2;
     padding: 10px;
 }
+
 .mega-menu__links {
     flex: 1;
 }
@@ -302,6 +306,120 @@ a {
 }
 
 /* end mega menu */
+
+/* start articles  */
+.section {
+    padding: 80px 0px;
+    /* background-color: red; */
+}
+
+/* ------  start  special button  ----------*/
+
+.specialTitleContainer {
+    text-align: center;
+
+}
+
+.specialTitleContainer h2 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid black;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    transition: var(--timeAnimationAndTransitionForSpecialButton);
+
+}
+
+.specialTitleContainer h2::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: -30px;
+    background-color: var(--main-blue);
+    transition: var(--timeAnimationAndTransitionForSpecialButton);
+    z-index: -1;
+}
+
+.specialTitleContainer h2::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    right: -30px;
+    background-color: var(--main-blue);
+    transition: var(--timeAnimationAndTransitionForSpecialButton);
+    z-index: -1;
+}
+
+.specialTitleContainer h2:hover {
+    animation: specialButton var(--timeAnimationAndTransitionForSpecialButton) forwards;
+}
+
+.specialTitleContainer h2:hover::before {
+    animation: leftBall var(--timeAnimationAndTransitionForSpecialButton) forwards;
+}
+
+.specialTitleContainer h2:hover::after {
+    animation: rightBall var(--timeAnimationAndTransitionForSpecialButton) forwards;
+
+}
+
+@keyframes specialButton {
+    0% {}
+
+    90% {}
+
+    100% {
+        border-color: var(--main-blue);
+        color: #fff;
+    }
+
+}
+
+@keyframes leftBall {
+    0% {}
+
+    50% {
+        left: 0px;
+        border-radius: 0px;
+    }
+
+    100% {
+        left: 0px;
+        border-radius: 0px;
+        height: 100%;
+        width: 51%;
+    }
+}
+
+@keyframes rightBall {
+    0% {}
+
+    50% {
+        right: 0px;
+        border-radius: 0px;
+    }
+
+    100% {
+        right: 0px;
+        border-radius: 0px;
+        height: 100%;
+        width: 51%;
+    }
+}
+
+
+/* ------  end  special button  ----------*/
+
+
+/* end articles */
 
 
 
