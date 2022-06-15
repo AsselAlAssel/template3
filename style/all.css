@@ -3,7 +3,7 @@
     --second-blue: #2196f3;
     --main-transition: .3s;
     --back-gr-color: #fafafa;
-    --timeAnimationAndTransitionForSpecialButton: .7s
+    --timeAnimationAndTransitionForMainTitle: .5s
 }
 
 html {
@@ -49,6 +49,104 @@ a {
 }
 
 /* ******* */
+/* ------  start  special button  ----------*/
+
+.mainTitle {
+    text-align: center;
+    margin-bottom: 70px;
+
+}
+
+.mainTitle h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid black;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    transition: var(--timeAnimationAndTransitionForMainTitle);
+
+}
+
+.mainTitle h2::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: -30px;
+    background-color: var(--main-blue);
+    transition: var(--timeAnimationAndTransitionForMainTitle);
+    z-index: -1;
+}
+
+.mainTitle h2::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    right: -30px;
+    background-color: var(--main-blue);
+    transition: var(--timeAnimationAndTransitionForMainTitle);
+    z-index: -1;
+}
+
+.mainTitle h2:hover {
+    color: #fff;
+    border-color: #fff;
+    transition-delay: var(--timeAnimationAndTransitionForMainTitle);
+}
+
+.mainTitle h2:hover::before {
+    animation: leftMove var(--timeAnimationAndTransitionForMainTitle) forwards;
+}
+
+.mainTitle h2:hover::after {
+    animation: rightMove var(--timeAnimationAndTransitionForMainTitle) forwards;
+
+}
+
+@keyframes leftMove {
+    50% {
+        left: 0px;
+        height: 16px;
+        width: 16px;
+    }
+
+    100% {
+        left: 0;
+        border-radius: 0px;
+        height: 100%;
+        width: 51%;
+    }
+}
+
+@keyframes rightMove {
+    50% {
+        right: 0px;
+        height: 16px;
+        width: 16px;
+    }
+
+    100% {
+        right: 0px;
+        border-radius: 0px;
+        height: 100%;
+        width: 51%;
+    }
+}
+
+
+/* ------  end  special button  ----------*/
+
+
+
+/* ***************** */
 
 /*  start header */
 .header {
@@ -234,18 +332,12 @@ a {
     background-color: #fff;
     z-index: 9;
     margin-top: 40px;
-    visibility: hidden;
+    z-index: -1;
     opacity: 0;
     transition: var(--main-transition) linear;
     min-height: 360px;
     border-bottom: 4px solid var(--main-blue);
 
-}
-
-.xxx:hover .container {
-    visibility: visible;
-    opacity: 1;
-    margin: 0px;
 }
 
 .mega-menu__image {
@@ -257,6 +349,11 @@ a {
     flex: 1;
 }
 
+.xxx:hover .container {
+    z-index: 100;
+    opacity: 1;
+    margin-top: 1px;
+}
 
 .mega-menu__image>img {
     max-width: 100%;
@@ -288,6 +385,11 @@ a {
     position: relative;
 }
 
+.mega-menu__links>li>i {
+    margin-right: 100px;
+    display: block;
+}
+
 .mega-menu__links>li::before {
     content: "";
     position: absolute;
@@ -307,116 +409,83 @@ a {
 
 /* end mega menu */
 
+
 /* start articles  */
 .section {
     padding: 80px 0px;
     /* background-color: red; */
 }
 
-/* ------  start  special button  ----------*/
-
-.specialTitleContainer {
-    text-align: center;
-
+.articles__cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
-.specialTitleContainer h2 {
-    font-size: 30px;
-    text-align: center;
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 2px solid black;
+@media (max-width:1199px) {
+    .articles__cardsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:991px) {
+    .articles__cardsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:580px) {
+    .articles__cardsContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.articles__card {
+    box-shadow: #ccc 0px 0px 8px 0px;
+    border-radius: 5px;
+    overflow: hidden;
     position: relative;
-    display: inline-flex;
+    transition: var(--main-transition) ease-in-out;
+    top: 0px;
+}
+
+.articles__card:hover {
+    top: -10px;
+}
+
+.articles__card>img {
+    width: 100%;
+
+}
+
+.articles__cardTitle {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 15px 10px;
+
+}
+
+.articles__cardDescription {
+    font-size: 16px;
+    line-height: 24px;
+    color: #777;
+    margin-left: 10px;
+
+}
+
+.articles__readMore {
+    padding: 20px 10px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 1px solid #eee;
+    color: var(--second-blue);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: auto;
-    transition: var(--timeAnimationAndTransitionForSpecialButton);
-
-}
-
-.specialTitleContainer h2::before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: -30px;
-    background-color: var(--main-blue);
-    transition: var(--timeAnimationAndTransitionForSpecialButton);
-    z-index: -1;
-}
-
-.specialTitleContainer h2::after {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    right: -30px;
-    background-color: var(--main-blue);
-    transition: var(--timeAnimationAndTransitionForSpecialButton);
-    z-index: -1;
-}
-
-.specialTitleContainer h2:hover {
-    animation: specialButton var(--timeAnimationAndTransitionForSpecialButton) forwards;
-}
-
-.specialTitleContainer h2:hover::before {
-    animation: leftBall var(--timeAnimationAndTransitionForSpecialButton) forwards;
-}
-
-.specialTitleContainer h2:hover::after {
-    animation: rightBall var(--timeAnimationAndTransitionForSpecialButton) forwards;
-
-}
-
-@keyframes specialButton {
-    0% {}
-
-    90% {}
-
-    100% {
-        border-color: var(--main-blue);
-        color: #fff;
-    }
-
-}
-
-@keyframes leftBall {
-    0% {}
-
-    50% {
-        left: 0px;
-        border-radius: 0px;
-    }
-
-    100% {
-        left: 0px;
-        border-radius: 0px;
-        height: 100%;
-        width: 51%;
-    }
-}
-
-@keyframes rightBall {
-    0% {}
-
-    50% {
-        right: 0px;
-        border-radius: 0px;
-    }
-
-    100% {
-        right: 0px;
-        border-radius: 0px;
-        height: 100%;
-        width: 51%;
-    }
 }
 
 
-/* ------  end  special button  ----------*/
 
 
 /* end articles */
@@ -454,7 +523,6 @@ a {
     70% {
         transform: translateY(-15px);
     }
-
 }
 
 
