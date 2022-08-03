@@ -729,7 +729,75 @@ a {
     margin-bottom: 0px;
     line-height: 24px;
 }
+.testimonials__cardRate i {
+    margin-right: 2px;
+}
 /* end testimonials */
+
+/* start  team member */
+.team--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 40px 80px;
+}
+.team--card {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding-top: 70px;
+    position: relative;
+}
+.team--card::before {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 100%;
+    background-color: rgba(153, 149, 149, 0.6);
+    right: 0px;
+    top: 0px;
+    z-index: 1;
+    border-radius: 10px;
+    transition: var(--main-transition);
+}
+.team--card:hover::before {
+    width: 100%;
+}
+.team--imgAndSocialMedia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.team--img {
+    max-width: 90%;
+    height: auto;
+    margin-left: -40px;
+    border-radius: 10px;
+    z-index: 2;
+    position: relative;
+    transition: var(--main-transition);
+}
+.team--card:hover .team--img {
+    filter: grayscale(100%);
+}
+.team--social a {
+    color: var(--description-color);
+    padding: 20px;
+}
+.team--social a:hover {
+    color: var(--main-blue);
+}
+.team--name {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-blue);
+    padding: 15px;
+}
+.team--desc {
+    font-size: 16px;
+    color: black;
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+/* end team member */
 
 /* start Animation */
 
