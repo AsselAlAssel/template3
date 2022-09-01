@@ -689,7 +689,8 @@ a {
 .testimonials {
     background-color: #ececec;
 }
-.testimonials .testimonials__cards {
+.testimonials .testimonials__cards,
+.services--container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--grid-gap);
@@ -798,6 +799,162 @@ a {
     padding-bottom: 30px;
 }
 /* end team member */
+
+/* start services */
+.services {
+    background-color: #ececec;
+}
+.services--card {
+    background-color: #fff;
+    padding-top: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    transition: all var(--main-transition) ease-in-out;
+    top: 0px;
+}
+.services--card:hover {
+    top: -15px;
+}
+.services--card > * {
+    width: 100%;
+}
+.services--card::before {
+    position: absolute;
+    content: '';
+    display: flex;
+    justify-content: center;
+    height: 3px;
+    width: 0%;
+    top: 0px;
+    background-color: var(--second-blue);
+    text-align: center;
+    transition: var(--main-transition) ease-in-out;
+}
+.services--card:hover::before {
+    width: 100%;
+}
+.services--icon {
+    font-size: 40px;
+    color: #d5d5d5;
+}
+.services--title {
+    color: var(--second-blue);
+    font-size: 27px;
+    font-weight: bold;
+    margin: 15px;
+}
+.services--footer {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+.services--footer > * {
+    padding: 10px 15px;
+}
+.services--footer > p {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    color: #fff;
+    background-color: var(--main-blue);
+    width: 90px;
+    position: relative;
+}
+.services--footer > p::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 100%;
+    background-color: #d5d5d5;
+    left: 80%;
+    top: 0px;
+    transform: skewX(-20deg);
+}
+.services--footer > a {
+    color: var(--second-blue);
+    font-size: 16px;
+}
+
+/* end SERVICES */
+
+/* start our-skills */
+.skills--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.skills--container > div {
+    flex: 1;
+}
+.skills--progressName {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+.skills--progressLine {
+    height: 30px;
+    background-color: #eeeeee;
+    position: relative;
+}
+.skills--progressLine::before {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    right: 0px;
+    top: -40px;
+    border-radius: 5px;
+    color: var(--main-blue);
+    text-align: center;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skills--progressCard:nth-child(1) .skills--progressLine {
+    width: attr(data-percent1) !important;
+}
+.skills--progressCard:nth-child(2) .skills--progressLine::before {
+    content: attr(data-percent2);
+}
+.skills--progressCard:nth-child(3) .skills--progressLine::before {
+    content: attr(data-percent3);
+}
+.skills--progressCard:nth-child(4) .skills--progressLine::before {
+    content: attr(data-percent4);
+}
+.skills--progressCard:nth-child(1) .skills--progressLine::before {
+    content: attr(data-percent1);
+}
+.skills--progressCard:nth-child(2) .skills--progressLine::before {
+    content: attr(data-percent2);
+}
+.skills--progressCard:nth-child(3) .skills--progressLine::before {
+    content: attr(data-percent3);
+}
+.skills--progressCard:nth-child(4) .skills--progressLine::before {
+    content: attr(data-percent4);
+}
+.skills--progressPercent {
+    display: block;
+    height: 30px;
+    background-color: var(--main-blue);
+    width: 0px;
+    transition: 0.7s ease-in-out;
+}
+
+@media screen and (max-width: 991px) {
+    .skills-img {
+        display: none;
+    }
+}
+
+/* end our-skills */
 
 /* start Animation */
 
