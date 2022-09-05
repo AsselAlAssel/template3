@@ -15,4 +15,17 @@ document.addEventListener('scroll', function (e) {
 
 
 
+var d = new Date("2015-01-15T10:59:59");
+setInterval(function () {
+
+    document.querySelector(".timeRemain--days .timeRemain--number").innerHTML = d.getDate();
+    document.querySelector(".timeRemain--hours .timeRemain--number").innerHTML = d.getHours();
+    document.querySelector(".timeRemain--minutes .timeRemain--number").innerHTML = d.getMinutes();
+    document.querySelector(".timeRemain--seconds .timeRemain--number").innerHTML = d.getSeconds();
+    d.setSeconds(d.getSeconds() - 1);
+}, 1000);
+
+
+
+
 
