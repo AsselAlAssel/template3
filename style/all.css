@@ -1324,6 +1324,71 @@ a {
 
 /* end pricing */
 
+/* start video */
+.video .container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e2e2e2;
+    border: 1px solid #e2e2e2;
+    padding: 0px;
+}
+@media screen and (max-width: 991px) {
+    .video .container {
+        flex-direction: column;
+    }
+}
+
+.video--sections {
+    min-width: 300px;
+}
+
+.video--sections .text {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
+.top-videos {
+    background-color: #f4f4f4 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+.sections--card {
+    border-top: 1px solid #ccc;
+}
+.sections--card a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.sections--card a:hover {
+    color: var(--second-blue);
+}
+.sections--card span {
+    font-size: 16px;
+    color: var(--description-color);
+}
+.video--img {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.video--img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.video--img p {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* end video */
+
 /* start Animation */
 
 @keyframes landingImgUpAndDown {
