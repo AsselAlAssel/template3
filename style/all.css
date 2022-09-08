@@ -1389,6 +1389,92 @@ a {
 
 /* end video */
 
+/* start stats */
+.stats {
+    background-image: url(../assets/imgs/stats.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 95%);
+}
+.stats .mainTitle h2 {
+    border: none;
+    font-size: 40px;
+}
+.stats .mainTitle h2::before,
+.stats .mainTitle h2::after {
+    display: none;
+}
+
+.stats .mainTitle h2:hover {
+    color: #000;
+}
+.stats .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.stats--card {
+    position: relative;
+    background-color: #fcfdfd;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    position: relative;
+}
+.stats--card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0%;
+    background-color: var(--second-blue);
+    transition: 0.7s ease-in-out;
+}
+.stats--card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0%;
+    background-color: var(--second-blue);
+    transition: 0.7s ease-in-out;
+}
+.stats--card:hover::before,
+.stats--card:hover::after {
+    height: 100%;
+}
+
+.stats--card i {
+    font-size: 32px;
+    padding: 10px 0px;
+}
+.stats--card .card--number {
+    font-size: 50px;
+    font-weight: bold;
+}
+.stats--card .card--title {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--second-blue);
+    padding: 10px 0px;
+}
+
+/* end stats */
+
 /* start Animation */
 
 @keyframes landingImgUpAndDown {
