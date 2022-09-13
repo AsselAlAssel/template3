@@ -3,6 +3,8 @@ const dataProgroessLine = document.querySelectorAll('.skills--progressLine');
 const stats = document.querySelector('.stats');
 const statsNumber = document.querySelectorAll('.stats--card .card--number');
 let started = false;
+const toUp = document.querySelector('.toUp');
+
 
 const counter = (temp) => {
     const goal = temp.dataset.goal;
@@ -16,22 +18,34 @@ const counter = (temp) => {
 
 }
 
+toUp.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+
 document.addEventListener('scroll', function (e) {
     if (skillsLine[0].getBoundingClientRect().top < 500) {
         for (let i = 0; i < skillsLine.length; i++) {
-
             skillsLine[i].style.width = skillsLine[i].dataset.progress;
         }
     }
 
     if (stats.getBoundingClientRect().top < 300 && !started) {
-
         statsNumber.forEach((temp) => {
             counter(temp);
         });
         started = true;
     }
 
+    if (window.scrollY > 300) {
+        toUp.style.visibility = 'visible';
+    } else {
+        toUp.style.visibility = 'hidden';
+
+    }
 });
 
 
